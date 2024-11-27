@@ -20,7 +20,3 @@ export const db = getFirestore(app);
 export const analytics = getAnalytics(app);
 
 export default app;
-git remote add origin <your-github-repo-url>
-git add .
-git commit -m "Initial commit"
-git push -u origin main
