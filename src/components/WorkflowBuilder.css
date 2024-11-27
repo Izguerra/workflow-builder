@@ -1,0 +1,4 @@
+.edge-wrapper:hover .label-container {
+  opacity: 1 !important;
+  pointer-events: all !important;
+}

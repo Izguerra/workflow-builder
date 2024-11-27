@@ -1,0 +1,50 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return request.auth.uid == userId;
+    }
+    
+    function hasAccess(workflowId) {
+      let workflow = get(/databases/$(database)/documents/workflows/$(workflowId));
+      return workflow.data.isPublic || 
+             workflow.data.userId == request.auth.uid ||
+             exists(/databases/$(database)/documents/workflowShares/$(workflowId + '_' + request.auth.uid));
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if isAuthenticated() && isOwner(userId);
+      allow delete: if isAuthenticated() && isOwner(userId);
+    }
+
+    // Workflows collection
+    match /workflows/{workflowId} {
+      allow read: if isAuthenticated() && (resource.data.isPublic || isOwner(resource.data.userId) || hasAccess(workflowId));
+      allow create: if isAuthenticated();
+      allow update, delete: if isAuthenticated() && isOwner(resource.data.userId);
+    }
+
+    // Workflow shares collection
+    match /workflowShares/{shareId} {
+      allow read: if isAuthenticated() && (isOwner(resource.data.sharedByUserId) || isOwner(resource.data.sharedWithUserId));
+      allow create: if isAuthenticated() && isOwner(request.resource.data.sharedByUserId);
+      allow delete: if isAuthenticated() && isOwner(resource.data.sharedByUserId);
+    }
+
+    // Workflow versions collection
+    match /workflowVersions/{versionId} {
+      allow read: if isAuthenticated() && hasAccess(resource.data.workflowId);
+      allow create: if isAuthenticated() && hasAccess(request.resource.data.workflowId);
+      allow delete: if isAuthenticated() && isOwner(get(/databases/$(database)/documents/workflows/$(resource.data.workflowId)).data.userId);
+    }
+  }
+}

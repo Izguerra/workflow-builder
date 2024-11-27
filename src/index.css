@@ -11,3 +11,56 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.react-flow__node {
+  width: auto !important;
+}
+
+.react-flow__handle {
+  width: 8px !important;
+  height: 8px !important;
+  background: #007bff !important;
+  border: 2px solid white !important;
+}
+
+.react-flow__handle-left {
+  left: -6px !important;
+}
+
+.react-flow__handle-right {
+  right: -6px !important;
+}
+
+.react-flow__node-service {
+  font-size: 14px;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.react-flow__controls {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.react-flow__controls-button {
+  border: none !important;
+  border-bottom: 1px solid #e9ecef !important;
+  background: white !important;
+  color: #6c757d !important;
+  padding: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #f8f9fa !important;
+}
+
+.react-flow__minimap {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  background: white !important;
+  border: 1px solid #e9ecef !important;
+}

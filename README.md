@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Workflow Builder
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+A powerful web application for creating solution diagrams using workflow automation, inspired by platforms like Make.com and n8n.
 
-## Available Scripts
+## Features
+- Drag-and-drop workflow diagram creation
+- Support for multiple node types (API, Database, Webhook, Batch Job, etc.)
+- Visual node-based interface for workflow design
+- Easy node connection and configuration
 
-In the project directory, you can run:
+## Technologies
+- React
+- React Flow
+- TypeScript
+- Emotion (styling)
+- Zustand (state management)
 
-### `npm start`
+## Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
+- Node.js (v14 or later)
+- npm
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
+1. Clone the repository
+2. Run `npm install`
+3. Start the development server with `npm start`
 
-### `npm test`
+## Usage
+1. Open the application
+2. Use the sidebar to add different types of nodes
+3. Drag and connect nodes to create your workflow
+4. Configure individual nodes as needed
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Roadmap
+- [ ] Add node configuration panels
+- [ ] Implement workflow export/import
+- [ ] Add more advanced node types
+- [ ] Implement authentication and security features
 
-### `npm run build`
+## Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+[Your License Here]

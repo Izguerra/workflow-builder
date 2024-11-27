@@ -1,0 +1,27 @@
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "16"
+
+# Production context: all deploys from the Production branch set in your site's
+# deploy contexts will inherit these settings.
+[context.production]
+  command = "npm run build"
+  publish = "build"
+
+# Deploy Preview context: all deploys generated from a pull/merge request will
+# inherit these settings
+[context.deploy-preview]
+  ignore = "exit 1"  # Do not build deploy previews
+
+# Branch deploy context: all deploys that are not from a pull/merge request or
+# from the Production branch will inherit these settings.
+[context.branch-deploy]
+  ignore = "exit 1"  # Do not build branch deploys
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
